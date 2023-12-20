@@ -55,15 +55,17 @@ export default {
       <input type="text" class="" placeholder="Type a movie" aria-label="Type a movie" aria-describedby="button-addon2" v-model="searchMovies">
       <button class="btn btn-dark" type="button" id="button-addon2" @click="filterMovies()">Search</button>
     </section>
-
-    <article >
-        <p class="card" v-for="singleMovie in store.moviesList" :key="singleMovie.id">
-            Title: {{ singleMovie.title }} <br>
-            Original title: {{ singleMovie.original_title }} <br>
-            Original language: {{ singleMovie.original_language }} <br>
-            Vote: {{ singleMovie.vote_average }}
-        </p>
-    </article>
+    <div class="container">
+        <article class="row">
+            <p class="card" v-for="singleMovie in store.moviesList" :key="singleMovie.id">
+                Title: {{ singleMovie.title }} <br>
+                Original title: {{ singleMovie.original_title }} <br>
+                Original language: {{ singleMovie.original_language }} <br>
+                Vote: {{ singleMovie.vote_average }}
+            </p>
+        </article>
+    </div>
+   
 
     
     
@@ -76,8 +78,10 @@ export default {
 @use '../style/partials/mixins' as *;
 @use '../style/partials/variables' as *;
 p.card{
-    width: calc((100% / 5) - 1rem);
+    width: calc((100% / 4) - 1rem);
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    padding: 1rem;
+    background-color:rgba(209, 152, 236, 0.538);
 }
 </style>

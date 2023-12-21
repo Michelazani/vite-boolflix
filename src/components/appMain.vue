@@ -8,7 +8,8 @@ export default {
             store,
             itFlag: 'src/assets/img/it.png',
             enFlag: 'src/assets/img/en.png',
-            esFlag: 'src/assets/img/es.png'
+            esFlag: 'src/assets/img/es.png',
+            frFlag: 'src/assets/img/fr.png'
         }
     },
     methods:{
@@ -20,7 +21,9 @@ export default {
             return this.enFlag
         } else if (singleMovie.original_language === 'es'){
             return this.esFlag
-        } else {
+        } else if (singleMovie.original_language === 'fr'){
+            return this.frFlag
+        }else {
             return singleMovie.original_language
         }
     }
@@ -44,7 +47,8 @@ export default {
             <h3>Tv Shows:</h3>
             <p class="card" v-for="singleTv in store.tvShowsList">
                 Original title: {{ singleTv.original_name }} <br>
-                Original language: <img :src="stringLanguageToImg(singleTv)"> <br>
+                <!-- TERNARY OPERATOR SU IMG CHE SE NON METTO IMG , RISULTA IL TESTO MA NON VA!!!!! -->
+                Original language: <img :src="originalLanguage ? stringLanguageToImg(singleMovie) : ''"> <br>
                 Vote: {{ singleTv.vote_average }}
             </p>
         </article>

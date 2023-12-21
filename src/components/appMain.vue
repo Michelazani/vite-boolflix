@@ -6,18 +6,18 @@ export default {
     data() {
         return {
             store,
-            // itFlag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/800px-Flag_of_Italy.svg.png?20160518044416'
+            itFlag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/800px-Flag_of_Italy.svg.png?20160518044416'
         }
     },
     methods:{
 
-        // stringLanguageToImg(){
-        //     if (singleMovie.original_language === 'it'){
-        //         return itFlag
-        //     } else{
-        //         singleMovie.original_language
-        //     }
-        // }
+     stringLanguageToImg(){
+         if (singleMovie.original_language === 'it'){
+             return itFlag
+         } else{
+             singleMovie.original_language
+         }
+     }
     }
     
 }
@@ -30,7 +30,7 @@ export default {
             <p class="card" v-for="singleMovie in store.moviesList">
                 Title: {{ singleMovie.title }} <br>
                 Original title: {{ singleMovie.original_title }} <br>
-                Original language: {{ singleMovie.original_language }} <br>
+                Original language: <img :src="stringLanguageToImg(singleMovie)"> <br>
                 Vote: {{ singleMovie.vote_average }}
             </p>
         </article>

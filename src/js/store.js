@@ -32,4 +32,8 @@ export const store = reactive({
                 console.log(error);
             });
     },
+    getMoviesAndTvSeries(searchedString) {
+        this.getMovie(searchedString);
+        this.getTvShow(searchedString);
+    }
 });

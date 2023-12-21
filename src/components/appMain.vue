@@ -6,12 +6,12 @@ export default {
     data() {
         return {
             store,
-            itFlag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/800px-Flag_of_Italy.svg.png?20160518044416'
+            itFlag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/800px-Flag_of_Italy.svg.png?20160518044416',
         }
     },
     methods:{
 
-     stringLanguageToImg(){
+     stringLanguageToImg(singleMovie){
          if (singleMovie.original_language === 'it'){
              return itFlag
          } else{

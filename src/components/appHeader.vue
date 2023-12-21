@@ -6,7 +6,7 @@ export default{
     data() {
         return {
             store,
-            searchedString: ''
+            searchedString: '',
         }
     }
 }
@@ -15,7 +15,7 @@ export default{
 <template>
     <section class="input-group m-5">
       <input type="text" class="" placeholder="Type a movie" aria-label="Type a movie" aria-describedby="button-addon2" v-model="searchedString" @keyup.enter="store.getMovie(searchedString)">
-      <button class="btn btn-dark" type="button" id="button-addon2" @click="store.getMovie(searchedString)">Search</button>
+      <button class="btn btn-dark" type="button" id="button-addon2" @click="store.getMovie(searchedString), getTvShow(searchedString)">Search</button>
     </section>
 </template> 
 

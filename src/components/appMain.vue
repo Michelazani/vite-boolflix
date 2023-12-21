@@ -5,9 +5,20 @@ import { store } from '../js/store.js';
 export default {
     data() {
         return {
-            store
+            store,
+            // itFlag: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/800px-Flag_of_Italy.svg.png?20160518044416'
         }
     },
+    methods:{
+
+        // stringLanguageToImg(){
+        //     if (singleMovie.original_language === 'it'){
+        //         return itFlag
+        //     } else{
+        //         singleMovie.original_language
+        //     }
+        // }
+    }
     
 }
 </script>
@@ -15,11 +26,20 @@ export default {
 <template>
     <div class="container">
         <article class="row">
+            <h3>Movies:</h3>
             <p class="card" v-for="singleMovie in store.moviesList">
                 Title: {{ singleMovie.title }} <br>
                 Original title: {{ singleMovie.original_title }} <br>
                 Original language: {{ singleMovie.original_language }} <br>
                 Vote: {{ singleMovie.vote_average }}
+            </p>
+        </article>
+        <article class="row">
+            <h3>Tv Shows:</h3>
+            <p class="card" v-for="singleTv in store.tvShowsList">
+                Original title: {{ singleTv.original_name }} <br>
+                Original language: {{ singleTv.original_language }} <br>
+                Vote: {{ singleTv.vote_average }}
             </p>
         </article>
     </div>

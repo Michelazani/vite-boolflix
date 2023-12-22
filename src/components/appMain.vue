@@ -38,8 +38,8 @@ export default {
         <div class="container">
             <article class="row">
                 <h4>Movies:</h4>
-                <p class="card" v-for="(singleMovie, index) in store.moviesList">
-                    Poster: <img class="poster-path" :src="this.dimensionPoster + singleMovie.poster_path" alt="poster of the movie">
+                <p class="card" v-for="singleMovie in store.moviesList">
+                    <img class="poster-path" :src="this.dimensionPoster + singleMovie.poster_path" alt="poster of the movie">
                     Title: {{ singleMovie.title }} <br>
                     Original title: {{ singleMovie.original_title }} <br>
                     Original language <img class="language" :src="stringLanguageToImg(singleMovie)"> <br>
@@ -49,10 +49,11 @@ export default {
             <article class="row">
                 <h4>Tv Shows:</h4>
                 <p class="card" v-for="singleTv in store.tvShowsList">
+                    <img class="poster-path" :src="this.dimensionPoster + singleTv.poster_path" alt="poster of the movie">
                     Title: {{ singleTv.name }} <br>
                     Original title: {{ singleTv.original_name }} <br>
                     <!-- TERNARY OPERATOR SU IMG CHE SE NON METTO IMG , RISULTA IL TESTO MA NON VA!!!!! -->
-                    Original language: <img :src="originalLanguage ? stringLanguageToImg(singleMovie) : ''"> <br>
+                    Original language: <img :src="originalLanguage ? stringLanguageToImg(singleTv) : ''"> <br>
                     Vote: {{ singleTv.vote_average }}
                 </p>
             </article>

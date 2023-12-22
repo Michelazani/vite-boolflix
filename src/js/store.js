@@ -6,8 +6,12 @@ export const store = reactive({
     tvShowsList: [],
     apiUrlNoQuery: 'https://api.themoviedb.org/3/search/movie?api_key=af2d007dc49307ea5757760954dfd889&query=',
     apiTvNoQuery: 'https://api.themoviedb.org/3/search/tv?api_key=af2d007dc49307ea5757760954dfd889&query=',
+    
+    
+    posterMovies : '' ,
 
-    getMovie(searchContent = '') {
+    // funzione per richiamare la lista film in base alla ricerca dell'utente
+    getMovie(searchContent =''){
         axios.get(this.apiUrlNoQuery + searchContent)
             .then((response) => {
                 // handle success
@@ -19,8 +23,9 @@ export const store = reactive({
                 console.log(error);
             });
     },
+    // funzione per richiamare la lista Tv show in base alla ricerca dell'utente
 
-    getTvShow(searchContent='') {
+    getTvShow(searchContent=''){
         axios.get(this.apiTvNoQuery + searchContent)
             .then((response) => {
                 // handle success
@@ -32,8 +37,9 @@ export const store = reactive({
                 console.log(error);
             });
     },
-    getMoviesAndTvSeries(searchedString) {
+    // funzione che unisce movie e Tv show in modo da inserirle in un unico click e keyup.enter
+    getMoviesAndTvSeries(searchedString){
         this.getMovie(searchedString);
         this.getTvShow(searchedString);
-    }
+    },
 });

@@ -11,6 +11,7 @@ export default {
             esFlag: 'public/img/es.png',
             frFlag: 'public/img/fr.png',
             dimensionPoster:'https://image.tmdb.org/t/p/w342',
+            numbersOfStars: 5
         }
     },
     methods:{
@@ -50,7 +51,9 @@ export default {
                         <img class="language" :src="stringLanguageToImg(singleMovie)"> <br>
                     </span>
                     <span v-else> {{ singleMovie.original_language }} </span>                     --> <br>
-                    <b>Vote: </b> {{ numberStarVote(singleMovie) }}
+                    
+                    <!-- metto 5 stelle vuote e in base al voto , si devono colorare -->
+                    <b>Vote: </b> {{ numberStarVote(singleMovie) }} <span class="star" v-for="star in numbersOfStars"> &#9733; </span>
                 </p>
             </article>
             <article class="row">
@@ -64,7 +67,7 @@ export default {
                         <img class="language" :src="stringLanguageToImg(singleTv)"> <br>
                     </span>
                     <span v-else> {{ singleTv.original_language }} </span>
-                    <b>Vote:</b> {{ singleTv.vote_average }}
+                    <b>Vote:</b> {{ numberStarVote(singleTv) }} <span class="star" v-for="star in numbersOfStars"> &#9733; </span>
                 </p>
             </article>
         </div>
@@ -99,6 +102,9 @@ export default {
             }
             img.language{
                 width: 1rem;
+            }
+            span.star{
+                color: yellow;
             }
     }   
     }

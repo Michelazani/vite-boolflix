@@ -26,6 +26,9 @@ export default {
         }else {
             return singleMovie.original_language
         }
+    },
+    numberStarVote(singleMovie){
+       return Math.round(singleMovie.vote_average /2)
     }
     }
     
@@ -47,7 +50,7 @@ export default {
                         <img class="language" :src="stringLanguageToImg(singleMovie)"> <br>
                     </span>
                     <span v-else> {{ singleMovie.original_language }} </span>                     --> <br>
-                    <b>Vote: </b>{{ singleMovie.vote_average }}
+                    <b>Vote: </b> {{ numberStarVote(singleMovie) }}
                 </p>
             </article>
             <article class="row">

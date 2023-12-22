@@ -6,8 +6,6 @@ export const store = reactive({
     tvShowsList: [],
     apiUrlNoQuery: 'https://api.themoviedb.org/3/search/movie?api_key=af2d007dc49307ea5757760954dfd889&query=',
     apiTvNoQuery: 'https://api.themoviedb.org/3/search/tv?api_key=af2d007dc49307ea5757760954dfd889&query=',
-    
-    
     posterMovies : '' ,
 
     // funzione per richiamare la lista film in base alla ricerca dell'utente
@@ -24,7 +22,6 @@ export const store = reactive({
             });
     },
     // funzione per richiamare la lista Tv show in base alla ricerca dell'utente
-
     getTvShow(searchContent=''){
         axios.get(this.apiTvNoQuery + searchContent)
             .then((response) => {

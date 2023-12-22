@@ -6,10 +6,10 @@ export default {
     data() {
         return {
             store,
-            itFlag: 'src/assets/img/it.png',
-            enFlag: 'src/assets/img/en.png',
-            esFlag: 'src/assets/img/es.png',
-            frFlag: 'src/assets/img/fr.png',
+            itFlag: 'public/img/it.png',
+            enFlag: 'public/img/en.png',
+            esFlag: 'public/img/es.png',
+            frFlag: 'public/img/fr.png',
             dimensionPoster:'https://image.tmdb.org/t/p/w500',
         }
     },

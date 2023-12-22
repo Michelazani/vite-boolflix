@@ -10,7 +10,7 @@ export default {
             enFlag: 'public/img/en.png',
             esFlag: 'public/img/es.png',
             frFlag: 'public/img/fr.png',
-            dimensionPoster:'https://image.tmdb.org/t/p/w500',
+            dimensionPoster:'https://image.tmdb.org/t/p/w342',
         }
     },
     methods:{
@@ -40,21 +40,28 @@ export default {
                 <h4>Movies:</h4>
                 <p class="card" v-for="singleMovie in store.moviesList">
                     <img class="poster-path" :src="this.dimensionPoster + singleMovie.poster_path" alt="poster of the movie">
-                    Title: {{ singleMovie.title }} <br>
-                    Original title: {{ singleMovie.original_title }} <br>
-                    Original language <img class="language" :src="stringLanguageToImg(singleMovie)"> <br>
-                    Vote: {{ singleMovie.vote_average }}
+                    <b>Title: </b>{{ singleMovie.title }} <br>
+                    <b>Original title:</b> {{ singleMovie.original_title }} <br>
+                    <b>Original language:</b>
+                    <!-- <span v-if="">
+                        <img class="language" :src="stringLanguageToImg(singleMovie)"> <br>
+                    </span>
+                    <span v-else> {{ singleMovie.original_language }} </span>                     --> <br>
+                    <b>Vote: </b>{{ singleMovie.vote_average }}
                 </p>
             </article>
             <article class="row">
                 <h4>Tv Shows:</h4>
                 <p class="card" v-for="singleTv in store.tvShowsList">
                     <img class="poster-path" :src="this.dimensionPoster + singleTv.poster_path" alt="poster of the movie">
-                    Title: {{ singleTv.name }} <br>
-                    Original title: {{ singleTv.original_name }} <br>
-                    <!-- TERNARY OPERATOR SU IMG CHE SE NON METTO IMG , RISULTA IL TESTO MA NON VA!!!!! -->
-                    Original language: <img :src="originalLanguage ? stringLanguageToImg(singleTv) : ''"> <br>
-                    Vote: {{ singleTv.vote_average }}
+                    <b>Title:</b> {{ singleTv.name }} <br>
+                    <b>Original title:</b> {{ singleTv.original_name }} <br>
+                    <b>Original language: </b>
+                    <span v-if="stringLanguageToImg(singleTv)">
+                        <img class="language" :src="stringLanguageToImg(singleTv)"> <br>
+                    </span>
+                    <span v-else> {{ singleTv.original_language }} </span>
+                    <b>Vote:</b> {{ singleTv.vote_average }}
                 </p>
             </article>
         </div>

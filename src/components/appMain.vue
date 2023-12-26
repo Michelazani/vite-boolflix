@@ -54,7 +54,6 @@ export default {
                         <span v-else> {{ singleMovie.original_language }} </span> <br> -->
                     <!-- inserimento alt (descrizione testuale dell'immagine) per mettere testo dove la lingua non corrisponde a img -->
                     <img class="language" :src="stringLanguageToImg(singleMovie)" :alt="singleMovie.original_language"> <br>
-
                     <!-- metto 5 stelle vuote e in base al voto , si devono colorare -->
                     <b>Vote: </b> <span class="star" v-for="star in numbersOfStars" :class="(star <= numberStarVote(singleMovie)) ? 'full-star' : '0'"> &#9733; </span>
                 </p>
@@ -65,13 +64,8 @@ export default {
                     <img class="poster-path" :src="this.dimensionPoster + singleTv.poster_path" alt="poster of the movie">
                     <b>Title:</b> {{ singleTv.name }} <br>
                     <b>Original title:</b> {{ singleTv.original_name }} <br>
-                    <b>Original language: <img class="language" :src="stringLanguageToImg(singleMovie)" :alt="singleMovie.original_language"> <br>
- </b>
-                    <span v-if="stringLanguageToImg(singleTv)">
-                        <img class="language" :src="stringLanguageToImg(singleTv)"> <br>
-                    </span>
-                    <span v-else> {{ singleTv.original_language }} </span>
-                    <b>Vote:</b> {{ numberStarVote(singleTv) }} <span class="star" v-for="star in numberStarVote"> &#9733; </span>
+                    <b>Original language: </b> <img class="language" :src="stringLanguageToImg(singleTv)" :alt="singleTv.original_language"> <br>
+                    <b>Vote:</b> <span class="star" v-for="star in numbersOfStars" :class="(star <= numberStarVote(singleTv)) ? 'full-star' : '0'"> &#9733; </span>
                 </p>
             </article>
         </div>

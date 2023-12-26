@@ -6,10 +6,10 @@ export default {
     data() {
         return {
             store,
-            itFlag: 'public/img/it.png',
-            enFlag: 'public/img/en.png',
-            esFlag: 'public/img/es.png',
-            frFlag: 'public/img/fr.png',
+            itFlag: '/img/it.png',
+            enFlag: '/img/en.png',
+            esFlag: '/img/es.png',
+            frFlag: '/img/fr.png',
             dimensionPoster:'https://image.tmdb.org/t/p/w342',
             numbersOfStars: 5
         }
@@ -53,7 +53,7 @@ export default {
                     <span v-else> {{ singleMovie.original_language }} </span>                     --> <br>
                     
                     <!-- metto 5 stelle vuote e in base al voto , si devono colorare -->
-                    <b>Vote: </b> {{ numberStarVote(singleMovie) }} <span class="star" v-for="star in numbersOfStars"> &#9733; </span>
+                    <b>Vote: </b> <span class="star" v-for="star in numbersOfStars" :class="(star <= numberStarVote(singleMovie)) ? 'full-star' : '0'"> &#9733; </span>
                 </p>
             </article>
             <article class="row">
@@ -67,7 +67,7 @@ export default {
                         <img class="language" :src="stringLanguageToImg(singleTv)"> <br>
                     </span>
                     <span v-else> {{ singleTv.original_language }} </span>
-                    <b>Vote:</b> {{ numberStarVote(singleTv) }} <span class="star" v-for="star in numbersOfStars"> &#9733; </span>
+                    <b>Vote:</b> {{ numberStarVote(singleTv) }} <span class="star" v-for="star in numberStarVote"> &#9733; </span>
                 </p>
             </article>
         </div>
@@ -103,7 +103,7 @@ export default {
             img.language{
                 width: 1rem;
             }
-            span.star{
+            span.full-star{
                 color: yellow;
             }
     }   

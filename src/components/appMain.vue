@@ -11,7 +11,7 @@ export default {
             esFlag: '/img/es.png',
             frFlag: '/img/fr.png',
             dimensionPoster:'https://image.tmdb.org/t/p/w342',
-            numbersOfStars: 5
+            numbersOfStars: 5,
         }
     },
     methods:{
@@ -41,7 +41,10 @@ export default {
     <main>
         <div class="container">
             <article class="row">
-                <h4>Movies:</h4>
+                <div v-if="store.moviesList.length === 0">
+                    <h2 class="container w-50  pt-5">Search the title of a movie or of a tv show</h2>
+                </div>
+                <h4 v-if="store.moviesList.length > 0">Movies:</h4>
                 <p class="card" v-for="singleMovie in store.moviesList">
                     <img class="poster-path" :src="this.dimensionPoster + singleMovie.poster_path" alt="poster of the movie">
                     <b>Title: </b>{{ singleMovie.title }} <br>
@@ -59,7 +62,7 @@ export default {
                 </p>
             </article>
             <article class="row">
-                <h4>Tv Shows:</h4>
+                <h4 v-if="store.moviesList.length > 0">Tv Shows:</h4>
                 <p class="card" v-for="singleTv in store.tvShowsList">
                     <img class="poster-path" :src="this.dimensionPoster + singleTv.poster_path" alt="poster of the movie">
                     <b>Title:</b> {{ singleTv.name }} <br>
@@ -89,7 +92,7 @@ export default {
         p.card{
             border: 1px solid white;
             color: white;
-            width: calc((100% / 3) - 2rem);
+            width: calc((100% / 4) - 2rem);
             margin-left: 1rem;
             margin-right: 1rem;
             padding: 1rem;

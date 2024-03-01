@@ -16,7 +16,7 @@ export default{
     <header>
         <section class="input-group">
             <h2>boolflix</h2>
-            <input type="text" class="" placeholder="Type a movie" aria-label="Type a movie" aria-describedby="button-addon2" v-model="searchedString" @keyup.enter="store.getMoviesAndTvSeries(searchedString)">
+            <input type="text" class="" placeholder="Type a movie or a Tv show " aria-label="Type a movie" aria-describedby="button-addon2" v-model="searchedString" @keyup.enter="store.getMoviesAndTvSeries(searchedString)">
         </section>
     </header>
     
